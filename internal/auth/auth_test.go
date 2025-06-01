@@ -1,11 +1,9 @@
-package auth_tests
+package auth
 
 import (
 	"net/http"
 	"strings"
 	"testing"
-
-	"github.com/bootdotdev/learn-cicd-starter/internal/auth"
 )
 
 func Test(t *testing.T) {
@@ -15,7 +13,7 @@ func Test(t *testing.T) {
 
 	headers.Add("Authorization", strings.Join([]string{"ApiKey", expectedKey}, " "))
 
-	actualKey, err := auth.GetAPIKey(headers)
+	actualKey, err := GetAPIKey(headers)
 
 	if actualKey != expectedKey {
 		t.Errorf("the key %v passed in the header is different from key %v returned on parsing.", expectedKey, actualKey)
