@@ -35,3 +35,7 @@ jobs:
 
             - name: Gcloud Build submit
               run: gcloud builds submit --tag asia-south1-docker.pkg.dev/notelydemobyshantesh/notely-shan-repo/notely:latest .
+
+            - name: Deploy to Cloud Run
+              run: gcloud run deploy notely --image asia-south1-docker.pkg.dev/notelydemobyshantesh/notely-shan-repo/notely:latest --region asia-south1 --allow-unauthenticated --project notelydemobyshantesh --max-instances=4
+  
